@@ -1,27 +1,89 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  // Core Configuration
   compatibilityDate: '2024-07-30',
-  // Nuxt 4 directory structure and features
-  // https://nuxt.com/docs/getting-started/upgrade#testing-nuxt-4
-  future: { compatibilityVersion: 4 },
-  // Nuxt Modules
-  // https://nuxt.com/modules
+  future: { 
+    compatibilityVersion: 4 
+  },
+
+  // Modules
   modules: [
     '@nuxthub/core',
-    '@nuxt/eslint'
+    '@nuxt/eslint',
+    '@nuxt/ui',
+    '@formkit/auto-animate',
+    '@nuxt/content'
   ],
+
+  // NuxtHub Configuration
   hub: {
     database: true,
     kv: true,
     blob: true,
     cache: true,
   },
+
+  // Nitro Server Configuration
   nitro: {
     experimental: {
-      // Enable Server API documentation within NuxtHub
       openAPI: true
     }
   },
-  // Development
-  devtools: { enabled: true },
+
+  // Development Tools
+  devtools: { 
+    enabled: true 
+  },
+
+  // UI Configuration
+  ui: {
+    global: true,
+    safelistColors: [
+      'primary',
+      'blue',
+      'red',
+      'green',
+      'yellow',
+      'purple',
+      'orange'
+    ]
+  },
+
+  // Color Mode Settings
+  colorMode: {
+    preference: 'system',
+    fallback: 'light',
+    classSuffix: ''
+  },
+
+  // Content Module Configuration
+  // @ts-expect-error - Content module types
+  content: {
+    preview: {
+      api: 'https://api.nuxt.studio'
+    },
+    
+    build: {
+      markdown: {
+        toc: {
+          depth: 3,
+          searchDepth: 3
+        },
+        highlight: {
+          theme: {
+            default: 'github-light',
+            dark: 'github-dark'
+          }
+        }
+      }
+    },
+    
+
+    watch: {
+      ws: {
+        port: 4000,
+        showURL: true
+      }
+    }
+  }
 })
