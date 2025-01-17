@@ -1,3 +1,5 @@
+import { defineNuxtConfig } from 'nuxt/config'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   // Core Configuration
@@ -12,7 +14,8 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/ui',
     '@formkit/auto-animate',
-    '@nuxt/content'
+    '@nuxt/content',
+    '@nuxthq/studio'
   ],
 
   // NuxtHub Configuration
@@ -57,28 +60,12 @@ export default defineNuxtConfig({
   },
 
   // Content Module Configuration
-  // @ts-expect-error - Content module types
   content: {
+
     preview: {
       api: 'https://api.nuxt.studio'
     },
-    
-    build: {
-      markdown: {
-        toc: {
-          depth: 3,
-          searchDepth: 3
-        },
-        highlight: {
-          theme: {
-            default: 'github-light',
-            dark: 'github-dark'
-          }
-        }
-      }
-    },
-    
-
+    // Content module options
 
   }
 })
