@@ -79,11 +79,6 @@ export default defineNuxtConfig({
     },
     
 
-    watch: {
-      ws: {
-        port: 4000,
-        showURL: true
-      }
-    }
+
   }
 })
